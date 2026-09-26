@@ -9,7 +9,83 @@ function calcularComision(numeroVenta,precioProducto){
     return comision;
 }
 
+function validarSueldoBase(){
+    let valor = recuperarTexto("txtSueldoBase");
+    let error = document.getElementById("errorSueldoBase");
+
+    if(valor==""){
+        error.textContent="El campo no puede estar vacío";
+        return false;
+    }
+
+    if(isNaN(valor)){
+        error.textContent="Solo se permiten números";
+        return false;
+    }
+
+    if(valor.length>5){
+        error.textContent="Máximo 5 dígitos";
+        return false;
+    }
+
+    error.textContent="";
+    return true;
+}
+
+
+function validarVentas(){
+    let valor = recuperarTexto("txtVentas");
+    let error = document.getElementById("errorVentas");
+
+    if(valor==""){
+        error.textContent="El campo no puede estar vacío";
+        return false;
+    }
+
+    if(isNaN(valor)){
+        error.textContent="Solo se permiten números";
+        return false;
+    }
+
+    if(valor.length>5){
+        error.textContent="Máximo 5 dígitos";
+        return false;
+    }
+
+    error.textContent="";
+    return true;
+}
+
+
+function validarPrecio(){
+    let valor = recuperarTexto("txtPrecio");
+    let error = document.getElementById("errorPrecio");
+
+    if(valor==""){
+        error.textContent="El campo no puede estar vacío";
+        return false;
+    }
+
+    if(isNaN(valor)){
+        error.textContent="Solo se permiten números";
+        return false;
+    }
+
+    if(valor.length>5){
+        error.textContent="Máximo 5 dígitos";
+        return false;
+    }
+
+    error.textContent="";
+    return true;
+}
+
 function calcular(){
+    if (validarSueldoBase()==false ||
+        validarVentas()==false ||
+        validarPrecio()==false){
+        return;
+    }
     //**Recuperamos propiedades de la caja de texto
     //let ctxSueldoBase=document.getElementById("txtSueldoBase");
     //let ctxVentas=document.getElementById("txtVentas");

@@ -150,4 +150,8 @@ span {
         padding: 10px;
     }
 }
-```
+
+span[id^="error"] {
+    color: red;
+    font-style: italic;
+}
